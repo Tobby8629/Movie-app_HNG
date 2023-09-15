@@ -1,11 +1,13 @@
 'use client'
-import { Main, Sidebar } from "@/components";
-import Movies from "@/public/movies";
+
+import { Main, Sidebar } from "../../../components";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 const Details = ({params}) => {
+    const Movies = useSelector((state)=> state.movies.movielist)
     const id = params.id
     const movie = Movies.find((m)=> m.id.toString() === id)
     const [bar, setbar] = useState(false)
@@ -15,7 +17,7 @@ const Details = ({params}) => {
           <FontAwesomeIcon icon={faBars}/>
         </button> 
         <Sidebar bar={bar} setbar={setbar}/>
-        <Main />
+        <Main movie={movie}/>
       </main>
      );
 }

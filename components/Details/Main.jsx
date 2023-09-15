@@ -1,7 +1,7 @@
 import { faAngleDown, faAppleAlt, faBarsProgress, faPlay, faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Main = () => {
+const Main = ({movie}) => {
     return ( 
       <main className="pt-10 pd-5 px-3 md:p-5 md:w-8.5/12 md:ml-auto lg:w-3/4 lg:ml-auto xl:w-10/12">
         <div className="relative h-[33vh] md:h-[40vh] lg:h-[55vh]">
@@ -16,8 +16,8 @@ const Main = () => {
         <div className="flex flex-row justify-between item-center mt-5 mb-3">
           <div className="md:flex md:items-center">
             <ul className="flex list-inside flex-row">
-              <li className="xl:text-lg text-xs lg:text-sm font-semibold">John Wick: Parabellum</li>
-              <li className="xl:text-lg lg:ml-3 font-semibold text-xs ml-2 lg:text-sm list-disc">2022</li>
+              <li className="xl:text-lg text-xs lg:text-sm font-semibold">{movie?.title}</li>
+              <li className="xl:text-lg lg:ml-3 font-semibold text-xs ml-2 lg:text-sm list-disc">{movie?.release_date}</li>
               <li className="xl:text-lg lg:ml-3 font-semibold text-xs ml-2 lg:text-sm list-disc">PG-2</li>
               <li className="xl:text-lg lg:ml-3 font-semibold text-xs ml-2 lg:text-sm list-disc">2h 10m</li>
             </ul>
@@ -32,9 +32,7 @@ const Main = () => {
         <div className="md:flex md:justify-between">
           <div className="md:w-8/12 md:mx-1 lg:w-7/12">
             <p className="xl:text-lg text-xs leading-5">
-              After thirty years, Maverick is still pushing the envelope as a top naval aviator,
-              but must confront ghosts of his past when he leads TOP GUN's elite graduates
-              on a mission that demands the ultimate sacrifice from those chosen to fly it.
+              {movie?.overview}
             </p>
             <ul className=" xl:text-lg text-xs font-medium">
               <li className="my-2">
