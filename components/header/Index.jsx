@@ -4,7 +4,7 @@ import { Search } from '..'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 
-function Header({movies}) {
+function Header({movies,release,setopen}) {
     const [screen, setscreen] = useState(false)
     const fetchVotes = movies.map((e) => e.vote_count)
     const highest =  Math.min(...fetchVotes)
@@ -17,8 +17,8 @@ function Header({movies}) {
       window.addEventListener('resize', resizee)
     },[])
   return (
-    <main className="header bg-cover bg-center h-[50vh] md:h-[70vh] lg:h-[80vh] p-2 py-4 md:px-10 lg:px-16"
-           style={{backgroundImage: `url(http://image.tmdb.org/t/p/w400/${popular.backdrop_path})`
+    <main className="header bg-cover bg-center h-[50vh] md:h-[70vh] p-2 py-4 md:px-10 lg:px-16"
+           style={{backgroundImage: `url(http://image.tmdb.org/t/p/w500/${popular.backdrop_path})`
   }}
     >
       <nav className='flex flex-row justify-between items-center'>
@@ -26,7 +26,7 @@ function Header({movies}) {
         <img src='/tv.png' />
         {screen ? <p className="left ml-2 text-white">Moviebox</p> : null}
         </div>
-        <Search /> 
+        <Search open={setopen} release={release}/> 
         <div className='flex flex-row items-center'>
           {screen ? <p className='mr-2 text-white'>Sign in</p>: null}
           {screen ? <FontAwesomeIcon icon={faBars}  className='bg-red-500 p-2 rounded-full text-lg text-white'/> : null}

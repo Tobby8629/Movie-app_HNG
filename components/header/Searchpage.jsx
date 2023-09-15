@@ -1,20 +1,29 @@
-import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Link from "next/link";
+"use client"
 
-const FeaturedCard = ({movies}) => {
-    return (
-     <>
-      <div className="flex justify-between items-center my-3 p-3 xl:px-10">
-        <h2 className="font-bold text-xl md:text-2xl lg:text-3xl xl:text-4xl">Featured Movie</h2>
-        <a href="" className="flex items-center text-rose-700">
-          <p>see more</p>
-          <FontAwesomeIcon icon={faAngleRight}  className="ml-1"/>
-        </a>
-      </div>
-      <section className=" grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 p-3 my-3 md:px-5 xl:px-10" data-testid = "movie-card">
-        {
-         movies.map((movie)=>(    
+import Link from 'next/link'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { movies } from '../../app/Redux/movies/MovieSlice'
+
+function Searchpage({open,text,setopen,fetchmovie}) {
+  
+   const moviess = fetchmovie.filter((e)=> e.title.toLowerCase() === text.toLowerCase())
+   console.log(moviess)
+
+    
+  return (
+    <>
+    {open ? 
+      <section className=' h-[100vh] w-full fixed top-0 bg-transparent backdrop-blur-3xl overflow-hidden'>
+    
+        {movies.length === 0 ?
+
+        <div>
+          <h2>could not find the movie requested</h2>
+          <button onClick={()=> setopen(false)}>CLOSE</button>
+        </div> :
+        <section className=" grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 p-3 my-3 md:px-5 xl:px-20" data-testid = "movie-card">
+          {moviess.map((movie)=>(
             <Link href={`movies/${movie.id}`} className=" w-11/12" key={movie.id}>
             <div className="w-full">
             <img src={`http://image.tmdb.org/t/p/w500//${movie.poster_path}`} className="w-full" data-testid="movie-poster"/>
@@ -37,11 +46,13 @@ const FeaturedCard = ({movies}) => {
             </ul>
             <p className='text-xs text-gray-400'>Action, Adventure, Horror</p>
             </Link>
-         ))
+          ))}
+        </section>
         }
-      </section>
-    </> 
-     );
+      </section>  : null
+    }
+    </>
+  )
 }
- 
-export default FeaturedCard;
+
+export default Searchpage
