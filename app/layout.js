@@ -1,11 +1,8 @@
-"use client"
-
 import './globals.css'
 import { Inter } from 'next/font/google'
 import "@fortawesome/fontawesome-svg-core/styles.css"; 
 import { config } from "@fortawesome/fontawesome-svg-core";
-import { Provider } from 'react-redux';
-import store from './Redux/store';
+import { Providers } from './Redux/provider';
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
@@ -18,9 +15,9 @@ export default function RootLayout({ children }) {
     
       <html lang="en">
         <body className={inter.className}>
-        <Provider store={store}>
+        <Providers>
           {children}
-        </Provider>
+        </Providers>
         </body>
       </html>
 
