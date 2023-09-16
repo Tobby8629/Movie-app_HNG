@@ -1,9 +1,3 @@
-<a name="readme-top"></a>
-
-<div align="center">
-  <h3><b>Movie-App</b></h3>
-</div>
-<a name="readme-top"></a>
 
 <!-- TABLE OF CONTENTS -->
 
@@ -149,6 +143,6 @@ If you like this project, please give a ⭐️and share with your friends.
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](https://github.com/Tobby8629/Car_rental_frontend/blob/development/LICENSE) licensed.
+This project is [MIT](https://github.com/Tobby8629/Movie-app_HNG/blob/development/LICENSE) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
