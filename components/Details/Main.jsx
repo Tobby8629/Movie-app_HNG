@@ -1,12 +1,12 @@
 import { faAngleDown, faAppleAlt, faBarsProgress, faPlay, faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Main = () => {
+const Main = ({movie}) => {
     return ( 
       <main className="pt-10 pd-5 px-3 md:p-5 md:w-8.5/12 md:ml-auto lg:w-3/4 lg:ml-auto xl:w-10/12">
         <div className="relative h-[33vh] md:h-[40vh] lg:h-[55vh]">
           <div className="h-full">
-            <img src="/poster.png" alt="poster-image" className="rounded-2xl h-full"/>
+            <img src={`https://image.tmdb.org/t/p/w500//${movie.backdrop_path}`} alt="poster-image" className="rounded-2xl h-full w-full"/>
           </div>
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white opacity-50 rounded-full w-20 h-20 text-center flex items-center justify-center">
             <FontAwesomeIcon icon={faPlay} className=" text-3xl"/>
@@ -16,10 +16,9 @@ const Main = () => {
         <div className="flex flex-row justify-between item-center mt-5 mb-3">
           <div className="md:flex md:items-center">
             <ul className="flex list-inside flex-row">
-              <li className="xl:text-lg text-xs lg:text-sm font-semibold">John Wick: Parabellum</li>
-              <li className="xl:text-lg lg:ml-3 font-semibold text-xs ml-2 lg:text-sm list-disc">2022</li>
-              <li className="xl:text-lg lg:ml-3 font-semibold text-xs ml-2 lg:text-sm list-disc">PG-2</li>
-              <li className="xl:text-lg lg:ml-3 font-semibold text-xs ml-2 lg:text-sm list-disc">2h 10m</li>
+              <li className="xl:text-lg text-xs lg:text-sm font-semibold" data-testid="movie-title">{movie?.title}</li>
+              <li className="xl:text-lg lg:ml-3 font-semibold text-xs ml-2 lg:text-sm list-disc" data-testid = "movie-release-date">{movie?.release_date}</li>
+              <li className="xl:text-lg lg:ml-3 font-semibold text-xs ml-2 lg:text-sm list-disc" data-testid= "movie-runtime">{movie?.runtime}mins</li>
             </ul>
             <div className="flex text-rose-700  mt-2 md:mt-0 md:ml-2">
               <p className="text-xs font-semibold mr-2 border-1 border-gray-300 rounded-xl p-2">Action</p>
@@ -31,10 +30,8 @@ const Main = () => {
         </div>
         <div className="md:flex md:justify-between">
           <div className="md:w-8/12 md:mx-1 lg:w-7/12">
-            <p className="xl:text-lg text-xs leading-5">
-              After thirty years, Maverick is still pushing the envelope as a top naval aviator,
-              but must confront ghosts of his past when he leads TOP GUN's elite graduates
-              on a mission that demands the ultimate sacrifice from those chosen to fly it.
+            <p className="xl:text-lg text-xs leading-5" data-testid="movie-overview">
+              {movie?.overview}
             </p>
             <ul className=" xl:text-lg text-xs font-medium">
               <li className="my-2">
