@@ -8,8 +8,8 @@ const Failed = ({text}) => {
   };
     return ( 
         <div className="h-[100vh] flex flex-col justify-center items-center">
-          <div className=" w-1/2 mx-auto">
-            <img src="/rock.png" alt='failed' className="w-full"/>
+          <div className=" w-1/2 mx-auto lg: h-96 lg:w-96">
+            <img src="/rock.png" alt='failed' className="w-full h-full"/>
           </div>
           <h2 className="text-lg">
             {text}

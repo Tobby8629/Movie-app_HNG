@@ -17,8 +17,8 @@ function Header({movies}) {
       window.addEventListener('resize', resizee)
     },[])
   return (
-    <main className="header bg-cover bg-center h-[50vh] md:h-[70vh] p-2 py-4 md:px-10 lg:px-16"
-           style={{backgroundImage: `url(http://image.tmdb.org/t/p/w500/${popular.backdrop_path})`
+    <main className="header bg-cover bg-center h-[50vh] md:h-[80vh] p-2 py-4 md:px-10 lg:px-16"
+           style={{backgroundImage: `url(/poster.png)`
   }}
     >
       <nav className='flex flex-row justify-between items-center'>
@@ -33,7 +33,7 @@ function Header({movies}) {
         </div>
       </nav>
       <section className='flex flex-col h-full flex-1 justify-center text-white sm:w-10/12 md:w-6/12 lg:w-3.5/12'>
-        <h2 className='  text-2xl w-2/3 lg:w-full  capitalize mb-1 md:text-3xl lg:text-5xl'> {popular.title}</h2>
+        <h2 className='  text-2xl w-2/3 lg:w-full  capitalize mb-1 md:text-3xl lg:text-5xl'> John Wick 3 : Parabellum</h2>
         <ul className='flex flex-row mb-1 '>
           <li className=' flex items-center my-1 mr-2'>
             <div className='w-1/3 mr-2'>
