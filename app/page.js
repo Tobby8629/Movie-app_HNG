@@ -1,9 +1,9 @@
 "use client"
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { movies } from "./Redux/movies/MovieSlice";
-import { Footer, Header, Searchpage } from "../components";
+import { Failed, Footer, Header, Loading} from "../components";
 import FeaturedCard from "../components/card";
 
 export default function Home() {
@@ -15,23 +15,19 @@ export default function Home() {
   const loading = useSelector((state)=> state.movies.status)
   const failed = useSelector((state)=> state.movies.failed)
   const moviess = moviesss?.slice(0,10)
-  const [open, setopen] = useState(false)
-  const [text, settext] = useState("")
-  console.log(moviess)
   return (
     <main className="min-h-screen">
-      {loading && "loading......"}
+      {loading && <Loading />}
     
       {moviesss &&
       <>
-        <Header  movies={moviesss} setopen={setopen} release={settext} />
+        <Header  movies={moviesss} />
         <FeaturedCard movies={moviess}/>
         <Footer /> 
-        <Searchpage text={text} fetchmovie={moviess} setopen={setopen} open={open}/>
       </>
        }
  
-       {failed && " could not find the resource"}
+       {failed && <Failed text="OOPS....couldn't find resource data" />}
     </main>
   )
 }

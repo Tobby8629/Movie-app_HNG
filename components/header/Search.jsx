@@ -1,16 +1,16 @@
+"use client"
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
 
 
-function Search({release,open}) {
+function Search() {
   const [text, settext] = useState('')
+  const route = useRouter()
   const findtext = (e) => {
     e.preventDefault()
-    console.log('i clicked')
-    release(text)
-    open(true)
-    settext('')
+    route.push(`search/${text}`, text) 
   }
   return (
     <form onSubmit={(e) => findtext(e)} className=' bg-transparent p-1 border-2 border-white rounded-lg flex items-center justify-center sm:w-9/12 md:w-1/2 md:p-3'>

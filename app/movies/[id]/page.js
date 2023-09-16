@@ -1,6 +1,6 @@
 'use client'
 
-import { Main, Sidebar } from "../../../components";
+import { Failed, Loading, Main, Sidebar } from "../../../components";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
@@ -11,7 +11,6 @@ const Details = ({params}) => {
   const id = params.id
   const dispatch = useDispatch()
 
-  console.log(id)
   useEffect(()=>{
     dispatch(Detail(id))
   },[])
@@ -26,7 +25,7 @@ const Details = ({params}) => {
         <button className="md:invisible absolute left-4 text-3xl" onClick={()=> setbar(true)}>
           <FontAwesomeIcon icon={faBars}/>
         </button> 
-        {status && "loading...."}
+        {status && <Loading />}
         {detail && 
         <>
           <Sidebar bar={bar} setbar={setbar}/>
@@ -34,7 +33,7 @@ const Details = ({params}) => {
         </>
         }
 
-        {failed && "failed to get resource"}
+        {failed && <Failed text="failed to get resource" />}
       </main>
      );
 }

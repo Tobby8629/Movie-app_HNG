@@ -4,7 +4,7 @@ import { Search } from '..'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 
-function Header({movies,release,setopen}) {
+function Header({movies}) {
     const [screen, setscreen] = useState(false)
     const fetchVotes = movies.map((e) => e.vote_count)
     const highest =  Math.min(...fetchVotes)
@@ -26,7 +26,7 @@ function Header({movies,release,setopen}) {
         <img src='/tv.png' />
         {screen ? <p className="left ml-2 text-white">Moviebox</p> : null}
         </div>
-        <Search open={setopen} release={release}/> 
+        <Search /> 
         <div className='flex flex-row items-center'>
           {screen ? <p className='mr-2 text-white'>Sign in</p>: null}
           {screen ? <FontAwesomeIcon icon={faBars}  className='bg-red-500 p-2 rounded-full text-lg text-white'/> : null}

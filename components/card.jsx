@@ -5,17 +5,17 @@ import Link from "next/link";
 const FeaturedCard = ({movies}) => {
     return (
      <>
-      <div className="flex justify-between items-center my-3 p-3 xl:px-10">
+      <div className="flex justify-between items-center my-2 p-3 xl:px-10">
         <h2 className="font-bold text-xl md:text-2xl lg:text-3xl xl:text-4xl">Featured Movie</h2>
         <a href="" className="flex items-center text-rose-700">
           <p>see more</p>
           <FontAwesomeIcon icon={faAngleRight}  className="ml-1"/>
         </a>
       </div>
-      <section className=" grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 p-3 my-3 md:px-5 xl:px-10" data-testid = "movie-card">
+      <section className=" grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 p-3 mb-3 md:px-5 xl:px-10" data-testid = "movie-card">
         {
          movies.map((movie)=>(    
-            <Link href={`movies/${movie.id}`} className=" w-11/12" key={movie.id}>
+            <Link href={`movies/${movie.id}`} className=" w-11/12 my-4" key={movie.id}>
             <div className="w-full">
             <img src={`http://image.tmdb.org/t/p/w500//${movie.poster_path}`} className="w-full" data-testid="movie-poster"/>
             </div>
