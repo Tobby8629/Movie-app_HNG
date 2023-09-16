@@ -22,21 +22,21 @@ function Searchpage({params}) {
    const moviess = fetchmovie?.filter((e)=> e.title.toLowerCase().includes(newString.toLowerCase()))
     
   return (
-    <div className='h-min-screen w-full  top-0 bg-transparent backdrop-blur-3xl p-2 md:p-5 xl:p-10 bg-no-repeat'>
+    <div className=' h-[100vh] w-full backdrop-blur-3xl bg-no-repeat overflow-scroll'>
      
     {status && <h2><Loading /></h2> }
-    <section className=' '>
+    <section className='h-full'>
     {moviess?.length === 0 ?
        <Failed text="Sorry....couldn't find the requested image"/> :
-       <>
+      <div className=' p-2 md:p-5 '>
        <nav className='flex flex-row justify-between items-center my-3'>
         <a href='/' className="flex flex-row items-center">
         <img src='/tv.png' />
         <p className="left ml-2 text-white">Moviebox</p>
         </a>
    
-        <a href='/' className='flex flex-row items-center bg-red-500 p-3 rounded-full  '>
-          <FontAwesomeIcon icon={faTimes}  className='text-xl text-white'/>
+        <a href='/' className='flex flex-row items-center w-10 h-10 bg-red-500 p-3 rounded-full  '>
+          <FontAwesomeIcon icon={faTimes}  className='text-2xl text-white'/>
         </a>
       </nav>
         <section className=" grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 p-3 my-3 md:px-5 xl:px-20" data-testid = "movie-card">
@@ -65,7 +65,7 @@ function Searchpage({params}) {
             </Link>
           ))}
         </section>
-        </>
+        </div>
         }
       </section> 
     </div>
