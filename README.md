@@ -1,9 +1,3 @@
-<a name="readme-top"></a>
-
-<div align="center">
-  <h3><b>Movie-App</b></h3>
-</div>
-<a name="readme-top"></a>
 
 <!-- TABLE OF CONTENTS -->
 
